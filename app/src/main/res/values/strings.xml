@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Clock</string>
+
+    <string name="title_alarm">Alarm</string>
+    <string name="title_timer">Timer</string>
+    <string name="title_stopwatch">Stopwatch</string>
+    <string name="title_world_clock">World Clock</string>
+
+    <string name="title_edit">Edit</string>
+    <string name="title_settings">Settings</string>
+    <string name="title_add_new">Add New</string>
+
+    <string name="description_edit">Edit</string>
+    <string name="description_settings">Settings</string>
+    <string name="description_add_new">Add new</string>
+
+    <!--    Tab item labels-->
+    <string name="alarm_label">Alarm</string>
+    <string name="world_clock_label">World Clock</string>
+    <string name="stop_watch_label">Stopwatch</string>
+    <string name="timer_label">Timer</string>
+
+    <string name="time_hint">12:34</string>
+    <string name="is_am_hint">AM</string>
+    <string name="days_hint">Monday, Tuesday, Wednesday, Thursday</string>
+
+    <string name="add_alarm">Add alarm</string>
+    <string name="txt_save">Save</string>
+    <string name="txt_discard">Discard</string>
+
+
+</resources>

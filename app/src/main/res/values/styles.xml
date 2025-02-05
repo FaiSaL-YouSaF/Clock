@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="title_text_appearance">
+        <item name="fontFamily">@font/university</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">@font/university</item>
+        <item name="android:textSize">@dimen/title_txt_size</item>
+    </style>
+
+    <style name="TabTextAppearance">
+        <item name="android:textSize">@dimen/tab_txt_size</item>
+    </style>
+
+</resources>

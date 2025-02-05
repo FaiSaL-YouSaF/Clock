@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/btnAlarmItem"
+        android:enabled="true"
+        android:title="@string/alarm_label"
+        android:icon="@drawable/baseline_alarm_24"
+        />
+
+    <item
+        android:id="@+id/btnWorldClockItem"
+        android:enabled="true"
+        android:title="@string/world_clock_label"
+        android:icon="@drawable/outline_watch_later_24"
+        />
+
+    <item
+        android:id="@+id/btnStopwatchItem"
+        android:enabled="true"
+        android:title="@string/stop_watch_label"
+        android:icon="@drawable/outline_timer_24"
+        />
+
+    <item
+        android:id="@+id/btnTimerItem"
+        android:enabled="true"
+        android:title="@string/timer_label"
+        android:icon="@drawable/baseline_av_timer_24"
+        />
+</menu>
