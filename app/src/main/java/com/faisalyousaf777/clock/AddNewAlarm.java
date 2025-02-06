@@ -1,10 +1,16 @@
 package com.faisalyousaf777.clock;
 
+import android.content.Intent;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.widget.NumberPicker;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.AppCompatEditText;
@@ -60,6 +66,28 @@ public class AddNewAlarm extends AppCompatActivity {
         amPmNumberPicker.setDisplayedValues(arrayOfAmPm);
         amPmNumberPicker.setMinValue(0);
         amPmNumberPicker.setMaxValue(1);
+
+        ActivityResultLauncher<Intent> ringtonePickerLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+            if (result != null && result.getResultCode() == RESULT_OK) {
+                if (result.getData() != null) {
+                    try {
+                        Uri ringtoneUri = result.getData().getParcelableExtra(RingtoneManager.EXTRA_RINGTONE_PICKED_URI);
+                        if (ringtoneUri != null) {
+                            Ringtone ringtone = RingtoneManager.getRingtone(this, ringtoneUri);
+                            ringtoneTextView.setText(ringtone.getTitle(this));
+                        }
+                    } catch (final Exception ex) {
+                        Toast.makeText(this, "Error: " + ex.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+        });
+
+        ringtoneTextView.setOnClickListener(v -> {
+            Intent ringtoneIntent = new Intent(RingtoneManager.ACTION_RINGTONE_PICKER);
+            ringtoneIntent.putExtra(RingtoneManager.EXTRA_RINGTONE_TYPE, RingtoneManager.TYPE_ALARM);
+            ringtonePickerLauncher.launch(ringtoneIntent);
+        });
 
 
         saveButton.setOnClickListener(v -> {

@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import androidx.annotation.Nullable;
+
 import com.faisalyousaf777.clock.entity.Alarm;
 
 import java.util.ArrayList;
@@ -40,7 +42,7 @@ public class AlarmDbHelper extends SQLiteOpenHelper {
         return instance;
     }
 
-    private AlarmDbHelper(Context context) {
+    private AlarmDbHelper(@Nullable Context context) {
         super(context, DB_NAME, null, DB_VERSION);
     }
 
