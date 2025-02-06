@@ -27,6 +27,9 @@
     <string name="add_alarm">Add alarm</string>
     <string name="txt_save">Save</string>
     <string name="txt_discard">Discard</string>
+    <string name="txt_label">Label</string>
+    <string name="txt_ringtone">Default Ringtone</string>
+    <string name="txt_alert_mode">Ring</string>
 
 
 </resources>

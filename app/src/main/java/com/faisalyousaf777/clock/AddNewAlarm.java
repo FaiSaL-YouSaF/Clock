@@ -2,17 +2,28 @@ package com.faisalyousaf777.clock;
 
 import android.os.Bundle;
 import android.widget.NumberPicker;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
+import androidx.appcompat.widget.AppCompatEditText;
+import androidx.appcompat.widget.AppCompatTextView;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.faisalyousaf777.clock.entity.Alarm;
+
 public class AddNewAlarm extends AppCompatActivity {
 
+    private AppCompatButton discardButton, saveButton;
     private NumberPicker hourNumberPicker, minuteNumberPicker, amPmNumberPicker;
+    private AppCompatEditText labelEditText;
+    private AppCompatTextView ringtoneTextView, alertModeTextView;
+    private AlarmDbHelper alarmDbHelper;
 
+    @SuppressWarnings("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,9 +34,14 @@ public class AddNewAlarm extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        discardButton = findViewById(R.id.discardButton);
+        saveButton = findViewById(R.id.saveButton);
         hourNumberPicker = findViewById(R.id.hourNumberPicker);
         minuteNumberPicker = findViewById(R.id.minuteNumberPicker);
         amPmNumberPicker = findViewById(R.id.amPmNumberPicker);
+        labelEditText = findViewById(R.id.labelEditText);
+        ringtoneTextView = findViewById(R.id.ringtoneTextView);
+        alertModeTextView = findViewById(R.id.alertModeTextView);
 
         String [] arrayOfMinutes = {
                 "00", "01", "02", "03", "04", "05", "06", "07", "08", "09",
@@ -34,7 +50,7 @@ public class AddNewAlarm extends AppCompatActivity {
                 "30", "31", "32", "33", "34", "35", "36", "37", "38", "39",
                 "40", "41", "42", "43", "44", "45", "46", "47", "48", "49",
                 "50", "51", "52", "53", "54", "55", "56", "57", "58", "59"};
-        String [] arrayOfAmPm = {"AM", "PM"};
+        String [] arrayOfAmPm = {"PM", "AM"};
 
         hourNumberPicker.setMinValue(1);
         hourNumberPicker.setMaxValue(12);
@@ -44,5 +60,18 @@ public class AddNewAlarm extends AppCompatActivity {
         amPmNumberPicker.setDisplayedValues(arrayOfAmPm);
         amPmNumberPicker.setMinValue(0);
         amPmNumberPicker.setMaxValue(1);
+
+
+        saveButton.setOnClickListener(v -> {
+            Alarm alarm = new Alarm(hourNumberPicker.getValue(), minuteNumberPicker.getValue(), amPmNumberPicker.getValue() == 1, labelEditText.getText().toString(), "Default", false);
+            alarmDbHelper = AlarmDbHelper.getInstance(this);
+            alarmDbHelper.insertAlarm(alarm);
+            Toast.makeText(this, "Alarm saved to DB", Toast.LENGTH_SHORT).show();
+            finish();
+        });
+
+        discardButton.setOnClickListener(v -> {
+            finish();
+        });
     }
 }

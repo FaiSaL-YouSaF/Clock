@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.faisalyousaf777.clock.AlarmDbHelper;
 import com.faisalyousaf777.clock.R;
 import com.faisalyousaf777.clock.adapter.AlarmAdapter;
 import com.faisalyousaf777.clock.entity.Alarm;
@@ -30,7 +31,6 @@ public class AlarmFragment extends Fragment {
     public static AlarmFragment newInstance() {
         AlarmFragment fragment = new AlarmFragment();
         Bundle args = new Bundle();
-
         fragment.setArguments(args);
         return fragment;
     }
@@ -43,34 +43,8 @@ public class AlarmFragment extends Fragment {
         if (getArguments() != null) {
             rvAlarms = view.findViewById(R.id.rvAlarms);
             rvAlarms.setLayoutManager(new LinearLayoutManager(getContext()));
-            rvAlarms.setAdapter(new AlarmAdapter(sampleData()));
-            Toast.makeText(getContext(), "AdapterSet", Toast.LENGTH_SHORT).show();
+            rvAlarms.setAdapter(new AlarmAdapter(AlarmDbHelper.getInstance(getContext()).getAllAlarms()));
         }
         return view;
-    }
-
-    public List<Alarm> sampleData() {
-        return List.of(
-                new Alarm(5, 34, true),
-                new Alarm(1, 48, false),
-                new Alarm(2, 48, false),
-                new Alarm(6, 48, true),
-                new Alarm(3, 48, false),
-                new Alarm(4, 28, false),
-                new Alarm(3, 38, true),
-                new Alarm(7, 12, false),
-                new Alarm(11, 10, false),
-                new Alarm(10, 25, true),
-                new Alarm(2, 32, false),
-                new Alarm(8, 59, false),
-                new Alarm(4, 49, true),
-                new Alarm(5, 44, false),
-                new Alarm(7, 18, false),
-                new Alarm(9, 20, true),
-                new Alarm(4, 48, false),
-                new Alarm(3, 48, false),
-                new Alarm(2, 13, true),
-                new Alarm(12, 23, false)
-        );
     }
 }

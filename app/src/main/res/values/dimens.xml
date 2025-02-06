@@ -6,4 +6,5 @@
     <dimen name="time_txt_size">36sp</dimen>
     <dimen name="is_am_margin_start">10dp</dimen>
     <dimen name="is_am_txt_size">10sp</dimen>
+    <dimen name="text_view_margin_top">15dp</dimen>
 </resources>
