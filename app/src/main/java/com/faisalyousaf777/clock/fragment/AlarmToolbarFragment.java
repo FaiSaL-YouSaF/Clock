@@ -44,6 +44,7 @@ public class AlarmToolbarFragment extends Fragment {
                     if (addAlarmIntent.resolveActivity(requireActivity().getPackageManager()) != null) {
                         startActivity(addAlarmIntent);
                     }
+
                     return true;
                 } else if (item.getItemId() == R.id.btnEditItem) {
                     // Open Edit Alarms Fragment

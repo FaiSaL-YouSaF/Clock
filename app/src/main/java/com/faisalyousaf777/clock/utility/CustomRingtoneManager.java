@@ -65,7 +65,7 @@ public class CustomRingtoneManager {
         }
         return null;
     }
-    
+
 
     public boolean deleteCustomRingtone(String ringtoneName) {
         File ringtoneFile = new File(getRingtoneDirectory(), ringtoneName + ".mp3");
