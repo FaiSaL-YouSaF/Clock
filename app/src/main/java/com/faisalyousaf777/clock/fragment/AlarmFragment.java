@@ -1,5 +1,6 @@
 package com.faisalyousaf777.clock.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.faisalyousaf777.clock.AlarmDbHelper;
 import com.faisalyousaf777.clock.R;
+import com.faisalyousaf777.clock.UpdateAlarm;
 import com.faisalyousaf777.clock.adapter.AlarmAdapter;
 import com.faisalyousaf777.clock.utility.OnViewHolderClickListener;
 
@@ -47,7 +49,8 @@ public class AlarmFragment extends Fragment implements OnViewHolderClickListener
 
     @Override
     public void onViewHolderClick(int position) {
-        Toast.makeText(getContext(), "Clicked on " + position, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(getContext(), UpdateAlarm.class);
+        startActivity(intent);
     }
 
     @Override

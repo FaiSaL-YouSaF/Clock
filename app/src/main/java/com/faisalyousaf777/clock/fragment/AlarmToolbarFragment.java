@@ -40,11 +40,8 @@ public class AlarmToolbarFragment extends Fragment {
             toolbar = view.findViewById(R.id.toolbar);
             toolbar.setOnMenuItemClickListener(item -> {
                 if (item.getItemId() == R.id.btnAddItem) {
-                    Intent addAlarmIntent = new Intent(getContext(), AddNewAlarm.class);
-                    if (addAlarmIntent.resolveActivity(requireActivity().getPackageManager()) != null) {
-                        startActivity(addAlarmIntent);
-                    }
-
+                    Intent intent = new Intent(getContext(), AddNewAlarm.class);
+                    startActivity(intent);
                     return true;
                 } else if (item.getItemId() == R.id.btnEditItem) {
                     // Open Edit Alarms Fragment
@@ -59,7 +56,6 @@ public class AlarmToolbarFragment extends Fragment {
                 }
             });
         }
-
         return view;
     }
 }
