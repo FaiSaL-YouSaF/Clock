@@ -2,6 +2,7 @@ package com.faisalyousaf777.clock.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.AlarmClock;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -61,5 +62,20 @@ public class AlarmFragment extends Fragment implements OnViewHolderClickListener
     @Override
     public void onSwitchToggle(int position, boolean isChecked) {
         Toast.makeText(getContext(), "Switch Toggle on " + position + " is " + isChecked, Toast.LENGTH_SHORT).show();
+    }
+
+    public void createAlarm() {
+        Intent intent = new Intent(AlarmClock.ACTION_SET_ALARM);
+        intent.putExtra(AlarmClock.EXTRA_HOUR, 10);
+        intent.putExtra(AlarmClock.EXTRA_MINUTES, 30);
+        intent.putExtra(AlarmClock.EXTRA_MESSAGE, "Wake up!");
+        intent.putExtra(AlarmClock.EXTRA_SKIP_UI, true);
+        intent.putExtra(AlarmClock.EXTRA_VIBRATE, true);
+//        intent.putExtra(AlarmClock.EXTRA_RINGTONE, "content://media/internal/audio/media/44");
+        if (intent.resolveActivity(requireContext().getPackageManager()) != null) {
+            startActivity(intent);
+        } else {
+            Toast.makeText(getContext(), "No Alarm App Found", Toast.LENGTH_SHORT).show();
+        }
     }
 }
