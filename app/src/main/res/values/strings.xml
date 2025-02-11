@@ -31,5 +31,14 @@
     <string name="txt_ringtone">Default Ringtone</string>
     <string name="txt_alert_mode">Ring</string>
 
+    <string name="txt_sunday">Sun</string>
+    <string name="txt_monday">Mon</string>
+    <string name="txt_tuesday">Tue</string>
+    <string name="txt_wednesday">Wed</string>
+    <string name="txt_thursday">Thu</string>
+    <string name="txt_friday">Fri</string>
+    <string name="txt_saturday">Sat</string>
+    <string name="txt_repeat">Repeat</string>
+
 
 </resources>

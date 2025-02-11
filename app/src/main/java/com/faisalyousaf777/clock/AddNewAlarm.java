@@ -91,9 +91,9 @@ public class AddNewAlarm extends AppCompatActivity {
 
 
         saveButton.setOnClickListener(v -> {
-            Alarm alarm = new Alarm(hourNumberPicker.getValue(), minuteNumberPicker.getValue(), amPmNumberPicker.getValue() == 1, labelEditText.getText().toString(), "Default", false);
-            alarmDbHelper = AlarmDbHelper.getInstance(this);
-            alarmDbHelper.insertAlarm(alarm);
+//            Alarm alarm = new Alarm(hourNumberPicker.getValue(), minuteNumberPicker.getValue(), amPmNumberPicker.getValue() == 1, labelEditText.getText().toString(), "Default", false, );
+//            alarmDbHelper = AlarmDbHelper.getInstance(this);
+//            alarmDbHelper.insertAlarm(alarm);
             Toast.makeText(this, "Alarm saved to DB", Toast.LENGTH_SHORT).show();
             finish();
         });

@@ -2,6 +2,9 @@ package com.faisalyousaf777.clock.entity;
 
 import androidx.annotation.NonNull;
 
+import java.time.DayOfWeek;
+import java.util.List;
+
 public class Alarm {
     private int alarmId;
     private int hours;
@@ -10,6 +13,7 @@ public class Alarm {
     private String label;
     private String ringtone;
     private boolean isVibrate;
+    private List<DayOfWeek> repeatDays;
 
     public Alarm() {
     }
@@ -20,16 +24,19 @@ public class Alarm {
         this.isAm = isAm;
     }
 
-    public Alarm(int hours, int minutes, boolean isAm, String label, String ringtone, boolean isVibrate) {
+    //All args constructor excluding the ID
+    public Alarm(int hours, int minutes, boolean isAm, String label, String ringtone, boolean isVibrate, List<DayOfWeek> repeatDays) {
         this.hours = hours;
         this.minutes = minutes;
         this.isAm = isAm;
         this.label = label;
         this.ringtone = ringtone;
         this.isVibrate = isVibrate;
+        this.repeatDays = repeatDays;
     }
 
-    public Alarm(int alarmId, int hours, int minutes, boolean isAm, String label, String ringtone, boolean isVibrate) {
+    // All args constructor
+    public Alarm(int alarmId, int hours, int minutes, boolean isAm, String label, String ringtone, boolean isVibrate, List<DayOfWeek> repeatDays) {
         this.alarmId = alarmId;
         this.hours = hours;
         this.minutes = minutes;
@@ -37,6 +44,7 @@ public class Alarm {
         this.label = label;
         this.ringtone = ringtone;
         this.isVibrate = isVibrate;
+        this.repeatDays = repeatDays;
     }
 
     public int getAlarmId() {
@@ -95,6 +103,14 @@ public class Alarm {
         isVibrate = vibrate;
     }
 
+    public List<DayOfWeek> getRepeatDays() {
+        return repeatDays;
+    }
+
+    public void setRepeatDays(List<DayOfWeek> repeatDays) {
+        this.repeatDays = repeatDays;
+    }
+
     @NonNull
     @Override
     public String toString() {
@@ -106,6 +122,7 @@ public class Alarm {
                 ", label='" + label + '\'' +
                 ", ringtone='" + ringtone + '\'' +
                 ", isVibrate=" + isVibrate +
+                ", repeatDays=" + repeatDays +
                 '}';
     }
 }

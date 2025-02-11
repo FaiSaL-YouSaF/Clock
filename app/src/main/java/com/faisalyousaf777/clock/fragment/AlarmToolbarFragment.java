@@ -19,13 +19,11 @@ public class AlarmToolbarFragment extends Fragment {
     private MaterialToolbar toolbar;
 
     public AlarmToolbarFragment() {
-        // Required empty public constructor
     }
 
     public static AlarmToolbarFragment newInstance() {
         AlarmToolbarFragment fragment = new AlarmToolbarFragment();
         Bundle args = new Bundle();
-
         fragment.setArguments(args);
         return fragment;
     }

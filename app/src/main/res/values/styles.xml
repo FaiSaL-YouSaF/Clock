@@ -12,4 +12,16 @@
         <item name="android:textSize">@dimen/tab_txt_size</item>
     </style>
 
+    <style name="rounded_smaller_chips" parent="Widget.Material3.Chip.Filter">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/chip_txt_size</item>
+        <item name="android:radius">300dp</item>
+        <item name="chipCornerRadius">30dp</item>
+        <item name="chipStartPadding">2dp</item>
+        <item name="chipEndPadding">2dp</item>
+        <item name="ensureMinTouchTargetSize">false</item>
+    </style>
+
+
 </resources>

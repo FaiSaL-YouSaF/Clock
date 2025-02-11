@@ -101,6 +101,56 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/daysChipGroup"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintWidth_percent="0.92"
+            app:singleLine="true"
+            app:singleSelection="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            >
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/sundayChip"
+                android:text="@string/txt_sunday"
+                style="@style/rounded_smaller_chips"
+                />
+            <com.google.android.material.chip.Chip
+                android:id="@+id/mondayChip"
+                android:text="@string/txt_monday"
+                style="@style/rounded_smaller_chips"
+                />
+            <com.google.android.material.chip.Chip
+                android:id="@+id/tuesdayChip"
+                android:text="@string/txt_tuesday"
+                style="@style/rounded_smaller_chips"
+                />
+            <com.google.android.material.chip.Chip
+                android:id="@+id/wednesdayChip"
+                android:text="@string/txt_wednesday"
+                style="@style/rounded_smaller_chips"
+                />
+            <com.google.android.material.chip.Chip
+                android:id="@+id/thursdayChip"
+                android:text="@string/txt_thursday"
+                style="@style/rounded_smaller_chips"
+                />
+            <com.google.android.material.chip.Chip
+                android:id="@+id/fridayChip"
+                android:text="@string/txt_friday"
+                style="@style/rounded_smaller_chips"
+                />
+            <com.google.android.material.chip.Chip
+                android:id="@+id/saturdayChip"
+                android:text="@string/txt_saturday"
+                style="@style/rounded_smaller_chips"
+                />
+        </com.google.android.material.chip.ChipGroup>
+
+
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/labelEditText"
             android:layout_width="0dp"
@@ -114,7 +164,7 @@
             android:layout_marginTop="@dimen/text_view_margin_top"
             android:drawableEnd="@drawable/baseline_navigate_next_24"
             android:drawablePadding="15dp"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/daysChipGroup"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             />
