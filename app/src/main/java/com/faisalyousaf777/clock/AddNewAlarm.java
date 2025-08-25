@@ -19,8 +19,6 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.faisalyousaf777.clock.entity.Alarm;
-
 public class AddNewAlarm extends AppCompatActivity {
 
     private AppCompatButton discardButton, saveButton;

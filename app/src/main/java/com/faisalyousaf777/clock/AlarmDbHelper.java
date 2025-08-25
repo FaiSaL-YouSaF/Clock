@@ -9,7 +9,7 @@ import android.util.Log;
 
 import androidx.annotation.Nullable;
 
-import com.faisalyousaf777.clock.entity.Alarm;
+import com.faisalyousaf777.clock.fragment_alarm.Alarm;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -40,4 +40,7 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+    // Room Database
+    implementation(libs.database.room)
+    implementation(libs.database.room.compiler)
 }
