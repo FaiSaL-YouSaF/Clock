@@ -25,7 +25,6 @@ public class AddNewAlarm extends AppCompatActivity {
     private NumberPicker hourNumberPicker, minuteNumberPicker, amPmNumberPicker;
     private AppCompatEditText labelEditText;
     private AppCompatTextView ringtoneTextView, alertModeTextView;
-    private AlarmDbHelper alarmDbHelper;
 
     @SuppressWarnings("MissingInflatedId")
     @Override

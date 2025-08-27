@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId = "com.faisalyousaf777.clock"
-        minSdk = 30
+        minSdk = 26
         targetSdk = 36
         versionCode = 1
         versionName = "1.0"
@@ -33,6 +33,14 @@ android {
 
 dependencies {
 
+//    constraints {
+//        implementation("com.intellij:annotations)") {
+//            version {
+//                strictly("23.0.0")
+//            }
+//        }
+//    }
+
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
@@ -42,5 +50,9 @@ dependencies {
     androidTestImplementation(libs.espresso.core)
     // Room Database
     implementation(libs.database.room)
-    implementation(libs.database.room.compiler)
+    annotationProcessor(libs.database.room.compiler)
+    // Lifecycle
+    implementation(libs.lifecycle.livedata)
+    implementation(libs.lifecycle.viewmodel)
+    implementation(libs.lifecycle.runtime)
 }

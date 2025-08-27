@@ -1,15 +1,24 @@
 package com.faisalyousaf777.clock;
 
 import android.content.Context;
+import android.util.Log;
 
+import androidx.annotation.NonNull;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.room.TypeConverters;
+import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.faisalyousaf777.clock.fragment_alarm.Alarm;
 import com.faisalyousaf777.clock.fragment_alarm.AlarmDao;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.Executors;
+
 @Database(entities = {Alarm.class}, version = 1, exportSchema = false)
+@TypeConverters(Converter.class)
 public abstract class AppDatabase extends RoomDatabase {
     public static final String DATABASE_NAME = "clock_database";
     private static volatile AppDatabase INSTANCE;
@@ -21,10 +30,42 @@ public abstract class AppDatabase extends RoomDatabase {
             synchronized (AppDatabase.class) {
                 if (INSTANCE == null) {
                     INSTANCE = Room.databaseBuilder(context, AppDatabase.class, DATABASE_NAME)
+                            .addCallback(roomCallback)
                             .build();
                 }
             }
         }
         return INSTANCE;
+    }
+
+
+    private static final Callback roomCallback = new Callback() {
+        @Override
+        public void onCreate(@NonNull SupportSQLiteDatabase db) {
+            super.onCreate(db);
+            Executors.newSingleThreadExecutor().execute(() -> {
+
+                AlarmDao alarmDao = INSTANCE.alarmDao();
+                alarmDao.insertAll(prepopulateData());
+                Log.d("DB", "onCreate: Database prepopulated successfully");
+            });
+        }
+    };
+
+    private static List<Alarm> prepopulateData() {
+        List<Alarm> alarms = new ArrayList<>();
+        alarms.add(new Alarm(1, 39, true));
+        alarms.add(new Alarm(8, 30, false));
+        alarms.add(new Alarm(8, 30, false));
+        alarms.add(new Alarm(7, 0, true));
+        alarms.add(new Alarm(12, 15, false));
+        alarms.add(new Alarm(18, 45, true));
+        alarms.add(new Alarm(22, 0, false));
+        alarms.add(new Alarm(20, 8, false));
+        alarms.add(new Alarm(1, 15, true));
+        for (int i = 0; i < 20; i++) {
+            alarms.add(new Alarm(3 + i, (i * 5) % 60, i % 2 == 0));
+        }
+        return alarms;
     }
 }

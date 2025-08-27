@@ -3,7 +3,35 @@
     <style name="Base.Theme.Clock" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
+        <!-- Bottom Navigation -->
+        <item name="bottomNavigationStyle">@style/CustomBottomNavigationView</item>
+        <item name="navigationRailStyle">@style/CustomNavigationRailView</item>
     </style>
 
     <style name="Theme.Clock" parent="Base.Theme.Clock" />
+
+
+
+    <!-- Custom ToolBar Layout Params -->
+    <style name="Widget.Material3.Toolbar.Layout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">?attr/actionBarSize</item>
+    </style>
+
+    <!-- Bottom Navigation Styles   -->
+    <style name="CustomBottomNavigationView" parent="Widget.Material3.BottomNavigationView">
+        <item name="labelVisibilityMode">labeled</item>
+        <item name="itemTextAppearanceInactive">?attr/textAppearanceLabelSmall</item>
+        <item name="itemTextAppearanceActive">?attr/textAppearanceLabelSmall</item>
+    </style>
+    <style name="TextAppearance.Material3.LabelSmall.Micro">
+        <item name="android:textSize">10sp</item>
+    </style>
+    <style name="CustomNavigationRailView" parent="Widget.Material3.NavigationRailView">
+        <item name="labelVisibilityMode">labeled</item>
+        <item name="itemTextAppearanceInactive">?attr/textAppearanceLabelMedium</item>
+        <item name="itemTextAppearanceActive">?attr/textAppearanceLabelMedium</item>
+    </style>
 </resources>

@@ -1,10 +1,13 @@
-package com.faisalyousaf777.clock.fragment_alarm;
+package com.faisalyousaf777.clock.fragment_alarm.viewmodel;
 
 import android.app.Application;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
+
+import com.faisalyousaf777.clock.fragment_alarm.Alarm;
+import com.faisalyousaf777.clock.fragment_alarm.AlarmRepository;
 
 import java.util.List;
 

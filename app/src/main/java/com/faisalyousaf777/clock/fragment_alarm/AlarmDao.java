@@ -20,6 +20,9 @@ public interface AlarmDao {
     @Insert
     long insert(Alarm alarm);
 
+    @Insert
+    List<Long> insertAll(List<Alarm> alarms);
+
     @Update
     int update(Alarm alarm);
 

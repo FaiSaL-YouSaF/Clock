@@ -2,13 +2,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item android:id="@+id/btnEditItem"
+    <item android:id="@+id/action_edit_alarm"
         android:title="@string/title_edit"
         android:contentDescription="@string/description_edit"
         app:showAsAction="always"
         />
 
-    <item android:id="@+id/btnAddItem"
+    <item android:id="@+id/action_add_alarm"
         android:title="@string/title_add_new"
         android:contentDescription="@string/description_add_new"
         android:icon="@drawable/baseline_add_24"
