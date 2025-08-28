@@ -1,6 +1,7 @@
-package com.faisalyousaf777.clock.fragment_alarm;
+package com.faisalyousaf777.clock.fragment_alarm.view;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -20,6 +21,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.faisalyousaf777.clock.R;
+import com.faisalyousaf777.clock.fragment_alarm.AlarmAdapter;
 import com.faisalyousaf777.clock.fragment_alarm.viewmodel.AlarmViewModel;
 import com.google.android.material.appbar.MaterialToolbar;
 
@@ -82,7 +84,8 @@ public class AlarmFragment extends Fragment {
 
         toolbar.setOnMenuItemClickListener(item -> {
             if (item.getItemId() == R.id.action_add_alarm) {
-                // Handle add alarm action
+                Intent addAlarmIntent = new Intent(view.getContext(), AddEditAlarmActivity.class);
+                startActivity(addAlarmIntent);
                 Log.d("AlarmFragment", "Add Alarm clicked");
                 return true;
             } else if (item.getItemId() == R.id.action_edit_alarm) {

@@ -1,4 +1,4 @@
-package com.faisalyousaf777.clock;
+package com.faisalyousaf777.clock.utils;
 
 import androidx.room.TypeConverter;
 

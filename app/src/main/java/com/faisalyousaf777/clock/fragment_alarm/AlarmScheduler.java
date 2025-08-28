@@ -6,6 +6,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 
+import com.faisalyousaf777.clock.fragment_alarm.data.Alarm;
+import com.faisalyousaf777.clock.fragment_alarm.receiver.AlarmReceiver;
+
 public class AlarmScheduler {
     public static void scheduleAlarm(Context context, Alarm alarm) {
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);

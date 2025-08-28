@@ -1,8 +1,7 @@
-package com.faisalyousaf777.clock.fragment_alarm;
+package com.faisalyousaf777.clock.fragment_alarm.data;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
-import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
@@ -15,7 +14,7 @@ public interface AlarmDao {
     @Query("SELECT * FROM alarm_table")
     LiveData<List<Alarm>> getAll();
     @Query("SELECT * FROM alarm_table WHERE alarm_id = :alarmId")
-    Alarm findById(int alarmId);
+    LiveData<Alarm> findById(int alarmId);
 
     @Insert
     long insert(Alarm alarm);

@@ -1,4 +1,4 @@
-package com.faisalyousaf777.clock.fragment_alarm;
+package com.faisalyousaf777.clock.fragment_alarm.data.repository;
 
 import android.app.Application;
 
@@ -6,6 +6,8 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 
 import com.faisalyousaf777.clock.AppDatabase;
+import com.faisalyousaf777.clock.fragment_alarm.data.Alarm;
+import com.faisalyousaf777.clock.fragment_alarm.data.AlarmDao;
 
 import java.util.List;
 import java.util.concurrent.ExecutorService;
@@ -26,7 +28,7 @@ public class AlarmRepository {
         return alarmDao.getAll();
     }
 
-    public Alarm findById(int alarmId) {
+    public LiveData<Alarm> findById(int alarmId) {
         return alarmDao.findById(alarmId);
     }
 

@@ -1,4 +1,4 @@
-package com.faisalyousaf777.clock.fragment_alarm;
+package com.faisalyousaf777.clock.fragment_alarm.view;
 
 import android.app.KeyguardManager;
 import android.content.Intent;
@@ -15,6 +15,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.faisalyousaf777.clock.R;
+import com.faisalyousaf777.clock.fragment_alarm.service.AlarmForegroundService;
 import com.faisalyousaf777.clock.utils.VibrationHelper;
 
 public class RingingActivity extends AppCompatActivity {

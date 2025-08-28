@@ -13,7 +13,7 @@ import androidx.fragment.app.Fragment;
 import com.faisalyousaf777.clock.fragment.StopwatchFragment;
 import com.faisalyousaf777.clock.fragment.TimerFragment;
 import com.faisalyousaf777.clock.fragment.WorldClockFragment;
-import com.faisalyousaf777.clock.fragment_alarm.AlarmFragment;
+import com.faisalyousaf777.clock.fragment_alarm.view.AlarmFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.navigationrail.NavigationRailView;

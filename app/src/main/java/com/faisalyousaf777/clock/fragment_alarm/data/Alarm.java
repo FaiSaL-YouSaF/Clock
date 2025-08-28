@@ -1,11 +1,11 @@
-package com.faisalyousaf777.clock.fragment_alarm;
+package com.faisalyousaf777.clock.fragment_alarm.data;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import androidx.room.TypeConverters;
 
-import com.faisalyousaf777.clock.Converter;
+import com.faisalyousaf777.clock.utils.Converter;
 
 import java.util.Calendar;
 
@@ -34,14 +34,26 @@ public class Alarm {
     public Alarm() {
     }
 
-    public Alarm(int hours, int minutes, boolean isEnabled) {
+    public Alarm(int hours, int minutes, boolean isEnabled, String label) {
         this.hours = hours;
         this.minutes = minutes;
         this.isEnabled = isEnabled;
         this.repeatDays = new boolean[7]; // Default: no repeat
-        this.label = "";
+        this.label = label;
         this.vibrate = false;
-        this.soundUri = -1; // Default sound
+        this.soundUri = -1; // Default sound {
+    }
+
+    public Alarm(int alarmId, int hours, int minutes, boolean isEnabled, String label) {
+        this.alarmId = alarmId;
+        this.hours = hours;
+        this.minutes = minutes;
+        this.isEnabled = isEnabled;
+        this.repeatDays = new boolean[7]; // Default: no repeat
+        this.label = label;
+        this.vibrate = false;
+        this.soundUri = -1; // Default sound {
+
     }
 
     public Alarm(int hours, int minutes, boolean isEnabled, boolean[] repeatDays, String label, boolean vibrate, int soundUri) {

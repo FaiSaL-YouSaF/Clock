@@ -3,9 +3,12 @@
 
     <dimen name="title_txt_size">20sp</dimen>
     <dimen name="tab_txt_size">12sp</dimen>
-    <dimen name="time_txt_size">36sp</dimen>
-    <dimen name="is_am_margin_start">10dp</dimen>
+    <dimen name="time_txt_size">25sp</dimen>
+    <dimen name="is_am_margin_start">8dp</dimen>
+    <dimen name="tv_days_txt_size">11sp</dimen>
     <dimen name="is_am_txt_size">10sp</dimen>
     <dimen name="text_view_margin_top">15dp</dimen>
     <dimen name="chip_txt_size">8sp</dimen>
+    <dimen name="spacing_medium">16dp</dimen>
+    <dimen name="spacing_small">8dp</dimen>
 </resources>

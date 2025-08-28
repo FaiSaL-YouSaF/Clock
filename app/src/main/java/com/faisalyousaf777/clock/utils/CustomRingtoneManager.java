@@ -1,4 +1,4 @@
-package com.faisalyousaf777.clock.utility;
+package com.faisalyousaf777.clock.utils;
 
 import android.content.Context;
 import android.net.Uri;

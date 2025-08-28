@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+        <declare-styleable name="CustomNumberPicker">
+            <attr name="dividerColor" format="color" />
+            <attr name="pickerMode" format="enum">
+                <enum name="hours" value="0" />
+                <enum name="minutes" value="1" />
+                <enum name="ampm" value="2" />
+            </attr>
+        </declare-styleable>
+
+</resources>

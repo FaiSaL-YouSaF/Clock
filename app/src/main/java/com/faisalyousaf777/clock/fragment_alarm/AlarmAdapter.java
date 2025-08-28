@@ -1,5 +1,8 @@
 package com.faisalyousaf777.clock.fragment_alarm;
 
+import static com.faisalyousaf777.clock.fragment_alarm.view.AddEditAlarmActivity.EXTRA_ALARM_ID;
+
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +13,8 @@ import androidx.appcompat.widget.AppCompatTextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.faisalyousaf777.clock.R;
+import com.faisalyousaf777.clock.fragment_alarm.data.Alarm;
+import com.faisalyousaf777.clock.fragment_alarm.view.AddEditAlarmActivity;
 import com.faisalyousaf777.clock.fragment_alarm.viewmodel.AlarmViewModel;
 import com.google.android.material.materialswitch.MaterialSwitch;
 
@@ -62,6 +67,17 @@ public class AlarmAdapter extends RecyclerView.Adapter<AlarmAdapter.AlarmViewHol
 
                 // TODO: if you want actual cancel → use AlarmManager.cancel(PendingIntent)
             }
+        });
+
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(v.getContext(), AddEditAlarmActivity.class);
+            intent.putExtra(EXTRA_ALARM_ID, alarm.getAlarmId());
+            v.getContext().startActivity(intent);
+        });
+
+        holder.itemView.setOnLongClickListener(v -> {
+            Toast.makeText(v.getContext(), "Long Clicked : " + alarm.getAlarmId(), Toast.LENGTH_SHORT).show();
+            return true;
         });
     }
 

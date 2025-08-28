@@ -6,8 +6,8 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
-import com.faisalyousaf777.clock.fragment_alarm.Alarm;
-import com.faisalyousaf777.clock.fragment_alarm.AlarmRepository;
+import com.faisalyousaf777.clock.fragment_alarm.data.Alarm;
+import com.faisalyousaf777.clock.fragment_alarm.data.repository.AlarmRepository;
 
 import java.util.List;
 
@@ -24,7 +24,7 @@ public class AlarmViewModel extends AndroidViewModel {
         return repository.getAll();
     }
 
-    public Alarm findById(int alarmId) {
+    public LiveData<Alarm> findById(int alarmId) {
         return repository.findById(alarmId);
     }
 

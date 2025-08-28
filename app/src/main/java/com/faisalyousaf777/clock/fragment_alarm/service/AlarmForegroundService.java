@@ -1,4 +1,4 @@
-package com.faisalyousaf777.clock.fragment_alarm;
+package com.faisalyousaf777.clock.fragment_alarm.service;
 
 import android.app.Notification;
 import android.app.NotificationChannel;

@@ -22,7 +22,7 @@
 
     <string name="time_hint">12:34</string>
     <string name="is_am_hint">AM</string>
-    <string name="days_hint">Monday, Tuesday, Wednesday, Thursday</string>
+    <string name="days_hint">Mon, Tue, Wed, Thu, Fri, Sat</string>
 
     <string name="add_alarm">Add alarm</string>
     <string name="txt_save">Save</string>
@@ -39,6 +39,8 @@
     <string name="txt_friday">Fri</string>
     <string name="txt_saturday">Sat</string>
     <string name="txt_repeat">Repeat</string>
+    <string name="txt_am">AM</string>
+    <string name="txt_pm">PM</string>
 
 
 </resources>

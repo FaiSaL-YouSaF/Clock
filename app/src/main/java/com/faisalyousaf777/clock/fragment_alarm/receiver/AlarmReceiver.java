@@ -1,4 +1,4 @@
-package com.faisalyousaf777.clock.fragment_alarm;
+package com.faisalyousaf777.clock.fragment_alarm.receiver;
 
 import android.Manifest;
 import android.content.BroadcastReceiver;
@@ -9,6 +9,8 @@ import android.content.pm.PackageManager;
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
+
+import com.faisalyousaf777.clock.fragment_alarm.view.RingingActivity;
 
 public class AlarmReceiver extends BroadcastReceiver {
     @Override
