@@ -11,7 +11,7 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
 
 import com.faisalyousaf777.clock.fragment.StopwatchFragment;
-import com.faisalyousaf777.clock.fragment.TimerFragment;
+import com.faisalyousaf777.clock.fragment_timer.TimerFragment;
 import com.faisalyousaf777.clock.fragment.WorldClockFragment;
 import com.faisalyousaf777.clock.fragment_alarm.view.AlarmFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;

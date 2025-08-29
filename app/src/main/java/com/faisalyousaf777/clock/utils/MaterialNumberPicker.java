@@ -14,12 +14,15 @@ import com.faisalyousaf777.clock.R;
 import com.google.android.material.color.MaterialColors;
 
 import java.lang.reflect.Field;
+import java.util.Locale;
 
 public class MaterialNumberPicker extends NumberPicker {
 
-    public static final int MODE_HOURS = 0;
-    public static final int MODE_MINUTES = 1;
-    public static final int MODE_AMPM = 2;
+    public static final int MODE_HOURS_12 = 0;
+    public static final int MODE_MINUTES_SECONDS = 1;
+    public static final int MODE_IS_AM = 2;
+    public static final int MODE_HOURS_24 = 3;
+
 
     public MaterialNumberPicker(Context context) {
         super(context);
@@ -82,25 +85,30 @@ public class MaterialNumberPicker extends NumberPicker {
 
     private void setupMode(int mode, Context context) {
         switch (mode) {
-            case MODE_HOURS:
+            case MODE_HOURS_12:
                 setMinValue(1);
                 setMaxValue(12);
                 break;
 
-            case MODE_MINUTES:
+            case MODE_MINUTES_SECONDS:
                 setMinValue(0);
                 setMaxValue(59);
-                setFormatter(value -> String.format("%02d", value));
+                setFormatter(value -> String.format(Locale.US, "%02d", value));
                 break;
 
-            case MODE_AMPM:
+            case MODE_IS_AM:
                 setMinValue(0);
                 setMaxValue(1);
                 String[] ampm = new String[]{
-                        context.getString(R.string.txt_am),
-                        context.getString(R.string.txt_pm)
+                        context.getString(R.string.txt_pm),
+                        context.getString(R.string.txt_am)
                 };
                 setDisplayedValues(ampm);
+                break;
+            case MODE_HOURS_24:
+                setMinValue(0);
+                setMaxValue(23);
+                setFormatter(value -> String.format(Locale.US, "%02d", value));
                 break;
         }
     }

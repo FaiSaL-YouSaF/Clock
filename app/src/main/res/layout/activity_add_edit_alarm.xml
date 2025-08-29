@@ -20,152 +20,172 @@
         app:title="@string/add_alarm"
         app:titleCentered="true" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vertical_start"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/spacing_medium"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar_add_edit_alarm">
-        
-        <!-- Time Picker Section -->
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/layout_time_picker"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:paddingVertical="@dimen/spacing_medium"
-            app:layout_constraintEnd_toEndOf="parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.04" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vertical_end"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.96" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/horizontal_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.75" />
+
+    <!-- Time Picker Section -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_time_picker"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingVertical="@dimen/spacing_medium"
+        app:layout_constraintEnd_toStartOf="@+id/vertical_end"
+        app:layout_constraintStart_toEndOf="@+id/vertical_start"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_add_edit_alarm">
+
+        <com.faisalyousaf777.clock.utils.MaterialNumberPicker
+            android:id="@+id/number_picker_hours"
+            style="@style/CustomNumberPickerStyle"
+            app:dividerColor="?attr/colorPrimary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/number_picker_minutes"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:pickerMode="hours_12" />
 
-            <com.faisalyousaf777.clock.utils.MaterialNumberPicker
-                android:id="@+id/number_picker_hours"
-                style="@style/CustomNumberPickerStyle"
-                app:dividerColor="?attr/colorPrimary"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/number_picker_minutes"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:pickerMode="hours" />
+        <com.faisalyousaf777.clock.utils.MaterialNumberPicker
+            android:id="@+id/number_picker_minutes"
+            style="@style/CustomNumberPickerStyle"
+            app:dividerColor="?attr/colorPrimary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/number_picker_is_am"
+            app:layout_constraintStart_toEndOf="@+id/number_picker_hours"
+            app:layout_constraintTop_toTopOf="parent"
+            app:pickerMode="minutes_seconds" />
 
-            <com.faisalyousaf777.clock.utils.MaterialNumberPicker
-                android:id="@+id/number_picker_minutes"
-                style="@style/CustomNumberPickerStyle"
-                app:dividerColor="?attr/colorPrimary"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/number_picker_is_am"
-                app:layout_constraintStart_toEndOf="@+id/number_picker_hours"
-                app:layout_constraintTop_toTopOf="parent"
-                app:pickerMode="minutes" />
-
-            <com.faisalyousaf777.clock.utils.MaterialNumberPicker
-                android:id="@+id/number_picker_is_am"
-                style="@style/CustomNumberPickerStyle"
-                app:dividerColor="?attr/colorPrimary"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/number_picker_minutes"
-                app:layout_constraintTop_toTopOf="parent"
-                app:pickerMode="ampm" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-        <!-- Repeat Days Section -->
-        <com.google.android.material.chip.ChipGroup
-            android:id="@+id/chip_group_days"
-            android:layout_width="match_parent"
-            android:layout_height="44dp"
+        <com.faisalyousaf777.clock.utils.MaterialNumberPicker
+            android:id="@+id/number_picker_is_am"
+            style="@style/CustomNumberPickerStyle"
+            app:dividerColor="?attr/colorPrimary"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/layout_time_picker"
-            app:singleLine="true"
-            app:singleSelection="false">
-
-            <!-- Reusable rounded chip style -->
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chip_sunday"
-                style="@style/Widget.App.Chip.Day"
-                android:text="@string/txt_sunday" />
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chip_monday"
-                style="@style/Widget.App.Chip.Day"
-                android:text="@string/txt_monday" />
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chip_tuesday"
-                style="@style/Widget.App.Chip.Day"
-                android:text="@string/txt_tuesday" />
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chip_wednesday"
-                style="@style/Widget.App.Chip.Day"
-                android:text="@string/txt_wednesday" />
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chip_thursday"
-                style="@style/Widget.App.Chip.Day"
-                android:text="@string/txt_thursday" />
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chip_friday"
-                style="@style/Widget.App.Chip.Day"
-                android:text="@string/txt_friday" />
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chip_saturday"
-                style="@style/Widget.App.Chip.Day"
-                android:text="@string/txt_saturday" />
-        </com.google.android.material.chip.ChipGroup>
-
-
-        <!-- Alarm Label -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/labelInputLayout"
-            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/chip_group_days">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_label"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/txt_label"
-                android:singleLine="true" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <!-- Ringtone -->
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tv_ringtone"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:drawableStart="@drawable/outline_notifications_active_24"
-            android:drawablePadding="@dimen/spacing_small"
-            android:padding="@dimen/spacing_small"
-            android:text="@string/txt_ringtone"
-            android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/labelInputLayout" />
-
-        <!-- Alert Mode -->
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tv_alert_mode"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:drawableStart="@drawable/outline_vibration_24"
-            android:drawablePadding="@dimen/spacing_small"
-            android:padding="@dimen/spacing_small"
-            android:text="@string/txt_alert_mode"
-            android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_ringtone" />
+            app:layout_constraintStart_toEndOf="@+id/number_picker_minutes"
+            app:layout_constraintTop_toTopOf="parent"
+            app:pickerMode="is_am" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <!-- Repeat Days Section -->
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chip_group_days"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:paddingHorizontal="0dp"
+        app:chipSpacingHorizontal="0dp"
+        app:layout_constraintEnd_toStartOf="@+id/vertical_end"
+        app:layout_constraintStart_toEndOf="@+id/vertical_start"
+        app:layout_constraintBottom_toTopOf="@+id/layout_et_label"
+        app:layout_constraintTop_toBottomOf="@+id/layout_time_picker"
+        app:layout_constraintWidth_percent="0.92"
+        app:singleLine="true"
+        app:singleSelection="false">
+
+        <!-- Reusable rounded chip style -->
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_sunday"
+            style="@style/Widget.App.Chip.Day"
+            android:text="@string/txt_sunday" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_monday"
+            style="@style/Widget.App.Chip.Day"
+            android:text="@string/txt_monday" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_tuesday"
+            style="@style/Widget.App.Chip.Day"
+            android:text="@string/txt_tuesday" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_wednesday"
+            style="@style/Widget.App.Chip.Day"
+            android:text="@string/txt_wednesday" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_thursday"
+            style="@style/Widget.App.Chip.Day"
+            android:text="@string/txt_thursday" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_friday"
+            style="@style/Widget.App.Chip.Day"
+            android:text="@string/txt_friday" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_saturday"
+            style="@style/Widget.App.Chip.Day"
+            android:text="@string/txt_saturday" />
+    </com.google.android.material.chip.ChipGroup>
+
+
+    <!-- Alarm Label -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layout_et_label"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@+id/vertical_end"
+        app:layout_constraintStart_toEndOf="@+id/vertical_start"
+        app:layout_constraintBottom_toTopOf="@+id/tv_ringtone"
+        app:layout_constraintTop_toBottomOf="@+id/chip_group_days">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/txt_label"
+            android:singleLine="true" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Ringtone -->
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_ringtone"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/outline_notifications_active_24"
+        android:drawablePadding="@dimen/spacing_small"
+        android:padding="@dimen/spacing_small"
+        android:text="@string/txt_ringtone"
+        android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+        app:layout_constraintEnd_toStartOf="@+id/vertical_end"
+        app:layout_constraintBottom_toTopOf="@+id/tv_alert_mode"
+        app:layout_constraintStart_toEndOf="@+id/vertical_start"
+        app:layout_constraintTop_toBottomOf="@+id/layout_et_label" />
+
+    <!-- Alert Mode -->
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_alert_mode"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/outline_vibration_24"
+        android:drawablePadding="@dimen/spacing_small"
+        android:padding="@dimen/spacing_small"
+        android:text="@string/txt_alert_mode"
+        android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+        app:layout_constraintEnd_toStartOf="@+id/vertical_end"
+        app:layout_constraintBottom_toTopOf="@+id/horizontal_bottom"
+        app:layout_constraintStart_toEndOf="@+id/vertical_start"
+        app:layout_constraintTop_toBottomOf="@+id/tv_ringtone" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,6 @@
 package com.faisalyousaf777.clock.fragment_alarm.data;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -7,6 +8,7 @@ import androidx.room.TypeConverters;
 
 import com.faisalyousaf777.clock.utils.Converter;
 
+import java.util.Arrays;
 import java.util.Calendar;
 
 @Entity(tableName = "alarm_table")
@@ -19,6 +21,8 @@ public class Alarm {
     private int hours;
     @ColumnInfo(name = "minutes")
     private int minutes;
+    @ColumnInfo(name = "is_am")
+    private boolean isAm;
     @ColumnInfo(name = "is_enabled")
     private boolean isEnabled;
     @ColumnInfo(name = "repeat_days")
@@ -34,9 +38,10 @@ public class Alarm {
     public Alarm() {
     }
 
-    public Alarm(int hours, int minutes, boolean isEnabled, String label) {
+    public Alarm(int hours, int minutes, boolean isAm, boolean isEnabled, String label) {
         this.hours = hours;
         this.minutes = minutes;
+        this.isAm = isAm;
         this.isEnabled = isEnabled;
         this.repeatDays = new boolean[7]; // Default: no repeat
         this.label = label;
@@ -44,10 +49,11 @@ public class Alarm {
         this.soundUri = -1; // Default sound {
     }
 
-    public Alarm(int alarmId, int hours, int minutes, boolean isEnabled, String label) {
+    public Alarm(int alarmId, int hours, int minutes, boolean isAm, boolean isEnabled, String label) {
         this.alarmId = alarmId;
         this.hours = hours;
         this.minutes = minutes;
+        this.isAm = isAm;
         this.isEnabled = isEnabled;
         this.repeatDays = new boolean[7]; // Default: no repeat
         this.label = label;
@@ -56,9 +62,10 @@ public class Alarm {
 
     }
 
-    public Alarm(int hours, int minutes, boolean isEnabled, boolean[] repeatDays, String label, boolean vibrate, int soundUri) {
+    public Alarm(int hours, int minutes, boolean isAm, boolean isEnabled, boolean[] repeatDays, String label, boolean vibrate, int soundUri) {
         this.hours = hours;
         this.minutes = minutes;
+        this.isAm = isAm;
         this.isEnabled = isEnabled;
         this.repeatDays = repeatDays;
         this.label = label;
@@ -66,10 +73,11 @@ public class Alarm {
         this.soundUri = soundUri;
     }
 
-    public Alarm(int alarmId, int hours, int minutes, boolean isEnabled, boolean[] repeatDays, String label, boolean vibrate, int soundUri) {
+    public Alarm(int alarmId, int hours, int minutes, boolean isAm, boolean isEnabled, boolean[] repeatDays, String label, boolean vibrate, int soundUri) {
         this.alarmId = alarmId;
         this.hours = hours;
         this.minutes = minutes;
+        this.isAm = isAm;
         this.isEnabled = isEnabled;
         this.repeatDays = repeatDays;
         this.label = label;
@@ -99,6 +107,14 @@ public class Alarm {
 
     public void setMinutes(int minutes) {
         this.minutes = minutes;
+    }
+
+    public boolean isAm() {
+        return isAm;
+    }
+
+    public void setAm(boolean am) {
+        isAm = am;
     }
 
     public boolean isEnabled() {
@@ -141,6 +157,22 @@ public class Alarm {
         this.soundUri = soundUri;
     }
 
+
+    @NonNull
+    @Override
+    public String toString() {
+        return "Alarm{" +
+                "alarmId=" + alarmId +
+                ", hours=" + hours +
+                ", minutes=" + minutes +
+                ", isAm=" + isAm +
+                ", isEnabled=" + isEnabled +
+                ", repeatDays=" + Arrays.toString(repeatDays) +
+                ", label='" + label + '\'' +
+                ", vibrate=" + vibrate +
+                ", soundUri=" + soundUri +
+                '}';
+    }
 
     public long getNextAlarmTime() {
         Calendar calendar = Calendar.getInstance();

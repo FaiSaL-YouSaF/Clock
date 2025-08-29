@@ -47,7 +47,18 @@ public class AlarmAdapter extends RecyclerView.Adapter<AlarmAdapter.AlarmViewHol
     @Override
     public void onBindViewHolder(@NonNull AlarmAdapter.AlarmViewHolder holder, int position) {
         Alarm alarm = listOfAlarm.get(position);
-        holder.tvTime.setText(LocalTime.of(alarm.getHours(), alarm.getMinutes()).toString());
+        holder.tvIsAm.setText(alarm.isAm() ? "AM" : "PM");
+        int hours = alarm.getHours();
+        if (alarm.isAm()) {
+            if (hours == 0) {
+                hours = 12; // Convert 0 hours to 12 for AM
+            }
+        } else {
+            if (hours > 12) {
+                hours -= 12;
+            }
+        }
+        holder.tvTime.setText(LocalTime.of(hours, alarm.getMinutes()).toString());
 
         holder.switchToggleAlarm.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked) {
@@ -60,8 +71,6 @@ public class AlarmAdapter extends RecyclerView.Adapter<AlarmAdapter.AlarmViewHol
                 Toast.makeText(buttonView.getContext(), String.format("Alarm will remind in %s Hours %s Minutes", (minutes / 60), (minutes % 60)), Toast.LENGTH_SHORT).show();
             } else {
                 AlarmScheduler.cancelAlarm(buttonView.getContext(), alarm);
-                // Turn OFF the alarm (optional: cancel alarm by ID or use AlarmManager)
-                // For demonstration, we'll just show a message
                 Toast.makeText(buttonView.getContext(),
                         "Alarm turned off", Toast.LENGTH_SHORT).show();
 

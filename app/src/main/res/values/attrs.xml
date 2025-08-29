@@ -4,9 +4,10 @@
         <declare-styleable name="CustomNumberPicker">
             <attr name="dividerColor" format="color" />
             <attr name="pickerMode" format="enum">
-                <enum name="hours" value="0" />
-                <enum name="minutes" value="1" />
-                <enum name="ampm" value="2" />
+                <enum name="hours_12" value="0" />
+                <enum name="minutes_seconds" value="1" />
+                <enum name="is_am" value="2" />
+                <enum name="hours_24" value="3" />
             </attr>
         </declare-styleable>
 

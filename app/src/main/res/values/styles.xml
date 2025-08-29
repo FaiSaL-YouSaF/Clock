@@ -34,15 +34,18 @@
 
     <!-- Rounded / oval chip style -->
     <style name="Widget.App.Chip.Day" parent="Widget.Material3.Chip.Filter">
-        <item name="android:layout_width">36dp</item>
-        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">@dimen/chip_txt_size</item>
-        <item name="shapeAppearanceOverlay">@style/ShapeAppearance.App.Chip.Oval</item>
-        <item name="chipBackgroundColor">@color/chip_day_selector</item>
+
+        <item name="chipStrokeWidth">0dp</item>
+        <item name="chipIconVisible">false</item>
+        <item name="checkedIconVisible">false</item>
+        <item name="textStartPadding">0dp</item>
+        <item name="textEndPadding">0dp</item>
+        <item name="rippleColor">@color/chip_day_selector</item>
+        <item name="chipCornerRadius">50dp</item> <!-- oval / rounded -->
         <item name="android:textColor">@color/chip_day_text_selector</item>
-        <item name="chipStrokeWidth">1dp</item>
-        <item name="chipStrokeColor">@color/chip_day_stroke</item>
-        <item name="android:textStyle">bold</item>
     </style>
 
     <!-- Fully rounded / oval -->

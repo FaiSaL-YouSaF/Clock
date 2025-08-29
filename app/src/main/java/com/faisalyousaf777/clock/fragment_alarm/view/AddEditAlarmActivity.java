@@ -46,6 +46,7 @@ public class AddEditAlarmActivity extends AppCompatActivity {
                 if (alarm != null) {
                     npHours.setValue(alarm.getHours());
                     npMinutes.setValue(alarm.getMinutes());
+                    npIsAm.setValue(alarm.isAm() ? 1 : 0);
                     etLabel.setText(alarm.getLabel());
                 }
             });
@@ -66,11 +67,24 @@ public class AddEditAlarmActivity extends AppCompatActivity {
 
                 if (alarmId == -1) {
                     // Insert new alarm
-                    Alarm alarm = new Alarm(hours, minutes, true, label);
+
+                    Alarm alarm = new Alarm(
+                            hours,
+                            minutes,
+                            npIsAm.getValue() == 1,
+                            true,
+                            label
+                    );
                     alarmViewModel.insert(alarm);
                 } else {
                     // Update existing alarm
-                    Alarm alarm = new Alarm(alarmId, hours, minutes, true, label);
+                    Alarm alarm = new Alarm(
+                            alarmId,
+                            hours,
+                            minutes,
+                            npIsAm.getValue() == 1,
+                            true,
+                            label);
                     alarmViewModel.update(alarm);
                 }
                 finish();

@@ -1,0 +1,54 @@
+package com.faisalyousaf777.clock.fragment_timer;
+
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.faisalyousaf777.clock.R;
+
+
+public class MultiTimerFragment extends Fragment {
+
+    public MultiTimerFragment() {
+        // Required empty public constructor
+    }
+
+    public static MultiTimerFragment newInstance() {
+        MultiTimerFragment fragment = new MultiTimerFragment();
+        Bundle args = new Bundle();
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_multi_timer, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        // Initialize your views
+        RecyclerView rvTimers = view.findViewById(R.id.rv_timers);
+
+        rvTimers.setLayoutManager(new LinearLayoutManager(view.getContext()));
+        TimerAdapter adapter = new TimerAdapter();
+        rvTimers.setAdapter(adapter);
+
+
+    }
+}
