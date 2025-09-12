@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment_timer.MultiTimerFragment">
+    tools:context=".fragment_timer.TimerListFragment">
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_timers"

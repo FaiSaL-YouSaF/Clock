@@ -40,7 +40,7 @@ public class MaterialNumberPicker extends NumberPicker {
     }
 
     private void init(Context context, @Nullable AttributeSet attrs) {
-        int dividerColor = MaterialColors.getColor(this, com.google.android.material.R.attr.colorPrimary);
+        int dividerColor = MaterialColors.getColor(this, com.google.android.material.R.attr.colorPrimaryContainer);
         int pickerMode = -1;
 
         if (attrs != null) {

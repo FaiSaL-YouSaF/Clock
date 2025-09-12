@@ -4,51 +4,46 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.faisalyousaf777.clock.R;
+import com.faisalyousaf777.clock.utils.MaterialNumberPicker;
+import com.google.android.material.appbar.MaterialToolbar;
 
 
-public class MultiTimerFragment extends Fragment {
+public class AddTimerFragment extends Fragment {
 
-    public MultiTimerFragment() {
+    public AddTimerFragment() {
         // Required empty public constructor
     }
 
-    public static MultiTimerFragment newInstance() {
-        MultiTimerFragment fragment = new MultiTimerFragment();
+    public static AddTimerFragment newInstance() {
+        AddTimerFragment fragment = new AddTimerFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
-    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_multi_timer, container, false);
+        return inflater.inflate(R.layout.fragment_add_timer, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         // Initialize your views
-        RecyclerView rvTimers = view.findViewById(R.id.rv_timers);
-
-        rvTimers.setLayoutManager(new LinearLayoutManager(view.getContext()));
-        TimerAdapter adapter = new TimerAdapter();
-        rvTimers.setAdapter(adapter);
-
+        MaterialToolbar toolbar = view.findViewById(R.id.toolbar_timer);
+        MaterialNumberPicker npHours = view.findViewById(R.id.number_picker_hours);
+        MaterialNumberPicker npMinutes = view.findViewById(R.id.number_picker_minutes);
+        MaterialNumberPicker npSeconds = view.findViewById(R.id.number_picker_seconds);
+        TextView tvRingtone = view.findViewById(R.id.tv_ringtone);
 
     }
 }

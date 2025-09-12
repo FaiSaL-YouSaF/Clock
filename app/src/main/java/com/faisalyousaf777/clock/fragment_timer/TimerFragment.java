@@ -4,14 +4,13 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.FrameLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.faisalyousaf777.clock.R;
-import com.faisalyousaf777.clock.utils.MaterialNumberPicker;
 import com.google.android.material.appbar.MaterialToolbar;
 
 
@@ -29,6 +28,11 @@ public class TimerFragment extends Fragment {
     }
 
     @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -40,10 +44,17 @@ public class TimerFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         // Initialize your views
         MaterialToolbar toolbar = view.findViewById(R.id.toolbar_timer);
-        MaterialNumberPicker npHours = view.findViewById(R.id.number_picker_hours);
-        MaterialNumberPicker npMinutes = view.findViewById(R.id.number_picker_minutes);
-        MaterialNumberPicker npSeconds = view.findViewById(R.id.number_picker_seconds);
-        TextView tvRingtone = view.findViewById(R.id.tv_ringtone);
 
+        toolbar.setTitle("Timer");
+
+        loadFragment(TimerListFragment.newInstance());
+//        loadFragment(AddTimerFragment.newInstance());
+
+    }
+
+    private void loadFragment(Fragment fragment) {
+        getChildFragmentManager().beginTransaction()
+                .replace(R.id.container_timer_fragments, fragment)
+                .commit();
     }
 }
