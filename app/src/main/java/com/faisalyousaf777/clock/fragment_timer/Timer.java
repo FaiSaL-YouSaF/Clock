@@ -1,106 +1,47 @@
 package com.faisalyousaf777.clock.fragment_timer;
 
-import androidx.annotation.NonNull;
-import androidx.room.ColumnInfo;
-import androidx.room.Entity;
-import androidx.room.PrimaryKey;
-
 import java.time.LocalDateTime;
 
-@Entity(tableName = "timers_table")
 public class Timer {
-    @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "timer_id")
-    private int timerId;
-    @ColumnInfo(name = "duration")
-    private long duration;
-    @ColumnInfo(name = "label")
-    private String label;
-    @ColumnInfo(name = "timer_state")
-    private TimerState timerState;
-    @ColumnInfo(name = "remaining_time")
-    private long remainingTime;
-    @ColumnInfo(name = "created_at")
-    private LocalDateTime createdAt;
+    private final int id;
+    private final long durationMillis;
+    private final String label;
+    private final boolean running;
+    private final long endTimeMillis;
+    private final LocalDateTime createdAt;
 
-    public Timer() {
-    }
-
-    public Timer(long duration, String label, TimerState timerState, long remainingTime, LocalDateTime createdAt) {
-        this.duration = duration;
+    public Timer(int id, long durationMillis, String label, boolean running,
+                 long endTimeMillis, LocalDateTime createdAt) {
+        this.id = id;
+        this.durationMillis = durationMillis;
         this.label = label;
-        this.timerState = timerState;
-        this.remainingTime = remainingTime;
+        this.running = running;
+        this.endTimeMillis = endTimeMillis;
         this.createdAt = createdAt;
     }
 
-    public Timer(int timerId, long duration, String label, TimerState timerState, long remainingTime, LocalDateTime createdAt) {
-        this.timerId = timerId;
-        this.duration = duration;
-        this.label = label;
-        this.timerState = timerState;
-        this.remainingTime = remainingTime;
-        this.createdAt = createdAt;
+    public int getId() {
+        return id;
     }
 
-    public int getTimerId() {
-        return timerId;
-    }
-
-    public void setTimerId(int timerId) {
-        this.timerId = timerId;
-    }
-
-    public long getDuration() {
-        return duration;
-    }
-
-    public void setDuration(long duration) {
-        this.duration = duration;
+    public long getDurationMillis() {
+        return durationMillis;
     }
 
     public String getLabel() {
         return label;
     }
 
-    public void setLabel(String label) {
-        this.label = label;
+    public boolean isRunning() {
+        return running;
     }
 
-    public TimerState getTimerState() {
-        return timerState;
-    }
-
-    public void setTimerState(TimerState timerState) {
-        this.timerState = timerState;
-    }
-
-    public long getRemainingTime() {
-        return remainingTime;
-    }
-
-    public void setRemainingTime(long remainingTime) {
-        this.remainingTime = remainingTime;
+    public long getEndTimeMillis() {
+        return endTimeMillis;
     }
 
     public LocalDateTime getCreatedAt() {
         return createdAt;
     }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    @NonNull
-    @Override
-    public String toString() {
-        return "Timer{" +
-                "timerId=" + timerId +
-                ", duration=" + duration +
-                ", label='" + label + '\'' +
-                ", timerState=" + timerState +
-                ", remainingTime=" + remainingTime +
-                ", createdAt=" + createdAt +
-                '}';
-    }
 }
+

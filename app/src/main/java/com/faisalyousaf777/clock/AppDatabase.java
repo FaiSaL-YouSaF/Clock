@@ -12,19 +12,22 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.faisalyousaf777.clock.fragment_alarm.data.Alarm;
 import com.faisalyousaf777.clock.fragment_alarm.data.AlarmDao;
+import com.faisalyousaf777.clock.fragment_timer.TimerDao;
+import com.faisalyousaf777.clock.fragment_timer.TimerEntity;
 import com.faisalyousaf777.clock.utils.Converter;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Executors;
 
-@Database(entities = {Alarm.class}, version = 1, exportSchema = false)
+@Database(entities = {Alarm.class, TimerEntity.class}, version = 1, exportSchema = false)
 @TypeConverters(Converter.class)
 public abstract class AppDatabase extends RoomDatabase {
     public static final String DATABASE_NAME = "clock_database";
     private static volatile AppDatabase INSTANCE;
 
     public abstract AlarmDao alarmDao();
+    public abstract TimerDao timerDao();
 
     public static AppDatabase getInstance(Context context) {
         if (INSTANCE == null) {

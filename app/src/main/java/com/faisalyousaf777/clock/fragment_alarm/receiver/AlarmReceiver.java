@@ -1,10 +1,12 @@
 package com.faisalyousaf777.clock.fragment_alarm.receiver;
 
 import android.Manifest;
+import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.util.Log;
 
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
@@ -24,14 +26,14 @@ public class AlarmReceiver extends BroadcastReceiver {
         ringingIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
         // Add flags for modern Android versions
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
-            ringingIntent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
-        }
+        ringingIntent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
 
         try {
             context.startActivity(ringingIntent);
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (ActivityNotFoundException ex) {
+            Log.e("RingingActivity", "onReceive: Activity not found", ex);
+        } catch (Exception ex) {
+            Log.e("RingingActivity", "onReceive: Error starting the RingingActivity", ex);
         }
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, "ALARM_CHANNEL")
